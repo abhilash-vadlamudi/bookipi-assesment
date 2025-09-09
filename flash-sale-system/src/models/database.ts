@@ -81,6 +81,7 @@ export class Database implements DatabaseTransaction {
         password_hash TEXT NOT NULL,
         role TEXT NOT NULL DEFAULT 'user' CHECK (role IN ('user', 'admin')),
         is_active BOOLEAN DEFAULT 1,
+        timezone TEXT DEFAULT 'UTC',
         created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         last_login DATETIME,
         failed_login_attempts INTEGER DEFAULT 0,

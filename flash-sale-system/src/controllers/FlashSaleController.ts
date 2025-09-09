@@ -244,7 +244,20 @@ export class FlashSaleController {
         return;
       }
 
-      const { userId, productId, flashSaleId }: PurchaseRequest = req.body;
+      const { productId, flashSaleId }: PurchaseRequest = req.body;
+      const userId = req.user?.userId;
+
+      if (!userId) {
+        const errorResponse: ApiErrorResponse = {
+          success: false,
+          message: 'User not authenticated',
+          statusCode: 401,
+          timestamp: new Date().toISOString(),
+          path: req.path
+        };
+        res.status(401).json(errorResponse);
+        return;
+      }
 
       let targetFlashSaleId = flashSaleId;
       
@@ -474,8 +487,8 @@ export class FlashSaleController {
       // Convert timestamps to user timezone
       const purchasesWithUserTime = purchases.map(purchase => ({
         ...purchase,
-        created_at: TimezoneUtils.convertUTCToUserTimezone(purchase.created_at, userTimezone),
-        updated_at: TimezoneUtils.convertUTCToUserTimezone(purchase.updated_at, userTimezone)
+        created_at: purchase.created_at ? TimezoneUtils.convertUTCToUserTimezone(purchase.created_at, userTimezone) : undefined,
+        updated_at: purchase.updated_at ? TimezoneUtils.convertUTCToUserTimezone(purchase.updated_at, userTimezone) : undefined
       }));
 
       const successResponse: ApiResponse<{
@@ -695,7 +708,7 @@ export class FlashSaleController {
           const productCreateData: any = {
             name: productData.name,
             price: productData.price,
-            totalQuantity: productData.quantity,
+            totalQuantity: productData.totalQuantity || productData.quantity, // Support both field names
             flashSaleId: flashSale.id
           };
           

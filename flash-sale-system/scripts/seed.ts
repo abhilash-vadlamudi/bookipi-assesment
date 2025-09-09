@@ -40,7 +40,7 @@ const seedData: SeedData = {
       confirmPassword: 'AdminSecure2025!',
       role: 'admin',
       name: 'Flash Sale Admin',
-      timezone: 'America/New_York'
+      timezone: 'Australia/Sydney'
     },
     {
       email: 'user1@example.com',
@@ -48,7 +48,7 @@ const seedData: SeedData = {
       confirmPassword: 'UserPass2025!',
       role: 'user',
       name: 'John Doe',
-      timezone: 'Asia/Kolkata'
+      timezone: 'Australia/Sydney'
     },
     {
       email: 'user2@example.com',
@@ -56,7 +56,7 @@ const seedData: SeedData = {
       confirmPassword: 'UserPass2026!',
       role: 'user',
       name: 'Jane Smith',
-      timezone: 'Europe/London'
+      timezone: 'Australia/Sydney'
     },
     {
       email: 'user3@example.com',
@@ -64,7 +64,7 @@ const seedData: SeedData = {
       confirmPassword: 'UserPass2027!',
       role: 'user',
       name: 'Bob Wilson',
-      timezone: 'America/Los_Angeles'
+      timezone: 'Australia/Sydney'
     },
     {
       email: 'admin2@flashsale.com',
@@ -72,7 +72,7 @@ const seedData: SeedData = {
       confirmPassword: 'AdminSecure2026!',
       role: 'admin',
       name: 'Marketing Manager',
-      timezone: 'Asia/Tokyo'
+      timezone: 'Australia/Sydney'
     }
   ],
   products: [
@@ -135,22 +135,36 @@ const seedData: SeedData = {
   ],
   flashSales: [
     {
-      name: 'Black Friday Electronics Sale 2025',
-      startTime: new Date(Date.now() - 2 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Started 2 hours ago
-      endTime: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 4 hours
+      name: 'Premium Headphones Flash Sale',
+      startTime: new Date(Date.now() + 10 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts in 10 minutes
+      endTime: new Date(Date.now() + 6 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 6 hours
       products: [
         {
           name: 'Premium Wireless Headphones',
           description: 'High-quality noise-cancelling wireless headphones with 30-hour battery life',
           price: 199.99, // Discounted from 299.99
           totalQuantity: 50
-        },
+        }
+      ]
+    },
+    {
+      name: 'Smartphone Flash Sale',
+      startTime: new Date(Date.now() + 15 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts in 15 minutes
+      endTime: new Date(Date.now() + 8 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 8 hours
+      products: [
         {
           name: 'Smartphone X Pro',
           description: 'Latest flagship smartphone with advanced camera and AI features',
           price: 699.99, // Discounted from 899.99
           totalQuantity: 25
-        },
+        }
+      ]
+    },
+    {
+      name: 'Wireless Charging Flash Sale',
+      startTime: new Date(Date.now() + 20 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts in 20 minutes
+      endTime: new Date(Date.now() + 4 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 4 hours
+      products: [
         {
           name: 'Wireless Charging Pad',
           description: 'Fast wireless charging pad compatible with all Qi-enabled devices',
@@ -160,7 +174,7 @@ const seedData: SeedData = {
       ]
     },
     {
-      name: 'Weekend Gaming Special',
+      name: 'Gaming Laptop Weekend Special',
       startTime: new Date(Date.now() + 1 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts in 1 hour
       endTime: new Date(Date.now() + 25 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 25 hours
       products: [
@@ -169,7 +183,14 @@ const seedData: SeedData = {
           description: 'High-performance gaming laptop with RTX graphics and 144Hz display',
           price: 1199.99, // Discounted from 1499.99
           totalQuantity: 10
-        },
+        }
+      ]
+    },
+    {
+      name: 'Bluetooth Speaker Flash Sale',
+      startTime: new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts in 2 hours
+      endTime: new Date(Date.now() + 12 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 12 hours
+      products: [
         {
           name: 'Bluetooth Speaker Pro',
           description: 'Portable Bluetooth speaker with 360-degree sound and waterproof design',
@@ -179,16 +200,23 @@ const seedData: SeedData = {
       ]
     },
     {
-      name: 'Flash Sale Express',
-      startTime: new Date(Date.now() - 30 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Started 30 minutes ago
-      endTime: new Date(Date.now() + 30 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 30 minutes
+      name: 'Fitness Watch Flash Sale',
+      startTime: new Date(Date.now() + 5 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts in 5 minutes
+      endTime: new Date(Date.now() + 2 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 2 hours
       products: [
         {
           name: 'Smart Fitness Watch',
           description: 'Advanced fitness tracker with heart rate monitoring and GPS',
           price: 149.99, // Discounted from 199.99
           totalQuantity: 15
-        },
+        }
+      ]
+    },
+    {
+      name: 'Smart Home Hub Flash Sale',
+      startTime: new Date(Date.now() + 30 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts in 30 minutes
+      endTime: new Date(Date.now() + 3 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 3 hours
+      products: [
         {
           name: 'Smart Home Hub',
           description: 'Central hub for controlling all your smart home devices',
@@ -198,7 +226,7 @@ const seedData: SeedData = {
       ]
     },
     {
-      name: 'Mega Monday Sale',
+      name: 'Drone Camera Mega Sale',
       startTime: new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Starts tomorrow
       endTime: new Date(Date.now() + 48 * 60 * 60 * 1000).toISOString().slice(0, 19).replace('T', ' '), // Ends in 2 days
       products: [
@@ -286,12 +314,12 @@ class DatabaseSeeder {
     console.log('🧹 Clearing existing data...');
     
     const tables = [
-      'flash_sale_products',
       'purchases', 
-      'flash_sales',
       'products',
+      'flash_sales',
       'users',
-      'audit_logs'
+      'audit_logs',
+      'api_keys'
     ];
 
     for (const table of tables) {

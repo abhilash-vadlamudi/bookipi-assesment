@@ -232,13 +232,24 @@ cp .env.example .env
 
 # 4. Initialize database and seed data
 npm run setup
+# This will build the project, initialize database, and seed sample data
 
 # 5. Start the backend server
 npm start
 # Server runs on http://localhost:3000
 
-# Alternative: Development mode with auto-reload
+# Alternative: Development mode with auto-reload + auto-setup
 npm run dev
+# This automatically initializes database on first run
+```
+
+#### Quick Start Alternative
+```bash
+# For development, you can skip the setup step:
+npm install
+npm run dev
+# Database will auto-initialize when server starts
+# Then run: npm run seed (to add sample data)
 ```
 
 ### Frontend Setup (Port 3001)
@@ -285,6 +296,33 @@ npm run start:prod
 # Frontend
 npm run build
 # Serve the build folder with a static server
+```
+
+### Available NPM Scripts
+
+```bash
+# Development & Setup
+npm run setup           # Full setup: build + initialize DB + seed data
+npm run setup:dev       # Start dev server (auto-initializes DB)
+npm run dev            # Development server with auto-reload
+npm run seed           # Seed database with sample data
+npm run db:reset       # Reset database and re-setup
+
+# Building & Production
+npm run build          # Compile TypeScript to JavaScript
+npm start              # Start production server
+npm run start:prod     # Alias for production start
+
+# Testing (138 total tests)
+npm test               # Run all tests
+npm run test:unit      # Unit tests (91 tests)
+npm run test:integration # Integration tests (18 tests)
+npm run test:stress    # Stress tests (10 tests)
+npm run test:load      # Load tests (7 tests)
+npm run test:performance # Performance tests (7 tests)
+npm run test:breaking-point # Breaking point tests (5 tests)
+npm run test:coverage  # Test coverage report
+npm run test:watch     # Watch mode for development
 ```
 
 ## 📈 Stress Test Results Summary

@@ -208,6 +208,13 @@ describe('FlashSaleController', () => {
 
     beforeEach(() => {
       mockRequest.body = validPurchaseData;
+      mockRequest.user = { 
+        userId: 'user123',
+        email: 'test@example.com',
+        role: 'user',
+        iat: 123456789,
+        exp: 123456999
+      };
       
       // Mock current time to be within flash sale window
       jest.useFakeTimers();
@@ -370,7 +377,8 @@ describe('FlashSaleController', () => {
           updated_at: '2023-01-01T10:00:00Z',
           product_name: 'Test Product',
           product_price: 99.99,
-          flash_sale_name: 'Test Flash Sale'
+          flash_sale_name: 'Test Flash Sale',
+          user_email: 'test@example.com'
         }
       ];
 

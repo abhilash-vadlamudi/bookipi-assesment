@@ -40,6 +40,7 @@ export class AuthController {
       if (password !== confirmPassword) {
         const errorResponse: ApiErrorResponse = {
           success: false,
+          error: 'PASSWORDS_DO_NOT_MATCH',
           message: 'Passwords do not match',
           statusCode: 400,
           timestamp: new Date().toISOString(),
@@ -350,6 +351,18 @@ export class AuthController {
         return;
       }
 
+      if (!currentPassword || !newPassword) {
+        const errorResponse: ApiErrorResponse = {
+          success: false,
+          message: 'Current password and new password are required',
+          statusCode: 400,
+          timestamp: new Date().toISOString(),
+          path: req.path
+        };
+        res.status(400).json(errorResponse);
+        return;
+      }
+
       if (newPassword !== confirmPassword) {
         const errorResponse: ApiErrorResponse = {
           success: false,
@@ -377,7 +390,7 @@ export class AuthController {
       }
 
       // Verify current password
-      const isCurrentPasswordValid = await SecurityUtils.verifyPassword(currentPassword, user.password_hash);
+      const isCurrentPasswordValid = await SecurityUtils.verifyPassword(currentPassword!, user.password_hash!);
       if (!isCurrentPasswordValid) {
         const errorResponse: ApiErrorResponse = {
           success: false,

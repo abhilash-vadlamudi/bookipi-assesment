@@ -99,7 +99,7 @@ export class UserModel {
       }
 
       // Verify password
-      const isValidPassword = await SecurityUtils.verifyPassword(password, user.password_hash);
+      const isValidPassword = await SecurityUtils.verifyPassword(password, user.password_hash!);
       
       if (!isValidPassword) {
         await this.incrementFailedLoginAttempts(user.id);
@@ -238,7 +238,7 @@ export class UserModel {
       }
 
       // Verify current password
-      const isValidCurrentPassword = await SecurityUtils.verifyPassword(currentPassword, user.password_hash);
+      const isValidCurrentPassword = await SecurityUtils.verifyPassword(currentPassword, user.password_hash!);
       if (!isValidCurrentPassword) {
         logger.security('Password change failed - invalid current password', { userId });
         throw new Error('Current password is incorrect');

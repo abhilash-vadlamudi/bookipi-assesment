@@ -252,12 +252,9 @@ export const validateInput = (validations: ValidationChain[]) => {
 
 // Common validation chains
 export const purchaseValidation = [
-  body('userId')
-    .isString()
-    .trim()
-    .isLength({ min: 1, max: 100 })
-    .matches(/^[a-zA-Z0-9._-]+$/)
-    .withMessage('User ID must be alphanumeric and 1-100 characters'),
+  body('flashSaleId')
+    .isInt({ gt: 0 })
+    .withMessage('Flash sale ID must be a positive integer'),
   body('productId')
     .optional()
     .isInt({ gt: 0 })

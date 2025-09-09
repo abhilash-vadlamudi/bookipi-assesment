@@ -1,0 +1,189 @@
+# ================================================================
+# Assessment Project - Flash Sale System
+# Root .gitignore for assessment folder structure
+# ================================================================
+
+# =================
+# Node.js & Dependencies
+# =================
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+.pnpm-debug.log*
+**/package-lock.json
+**/yarn.lock
+**/pnpm-lock.yaml
+
+# Optional npm cache directory
+**/.npm
+**/.yarn-integrity
+
+# =================
+# TypeScript Build Outputs
+# =================
+**/dist/
+**/build/
+**/lib/
+**/out/
+**/*.tsbuildinfo
+**/types/
+
+# TypeScript compiled files (but keep config files)
+**/*.js
+**/*.js.map
+!**/jest.config.js
+!**/.eslintrc.js
+!**/scripts/*.js
+
+# =================
+# Environment Variables & Secrets
+# =================
+**/.env
+**/.env.local
+**/.env.development.local
+**/.env.test.local
+**/.env.production.local
+**/.env.staging
+**/.env.production
+
+# Security files
+**/*.pem
+**/*.key
+**/*.crt
+**/*.csr
+**/.secrets
+**/secrets.json
+**/private.key
+**/public.key
+
+# =================
+# Database Files
+# =================
+**/*.sqlite
+**/*.sqlite3
+**/*.db
+**/flash_sale_system.db
+**/database.db
+**/test_*.db
+**/*.backup
+**/backups/
+
+# =================
+# Logs & Runtime Data
+# =================
+**/logs/
+**/*.log
+**/pids
+**/*.pid
+**/*.seed
+**/*.pid.lock
+
+# =================
+# Test Coverage & Results
+# =================
+**/coverage/
+**/*.lcov
+**/.nyc_output
+**/test-results/
+**/playwright-report/
+**/blob-report/
+
+# =================
+# Cache & Temporary Files
+# =================
+**/.cache/
+**/.parcel-cache/
+**/.rpt2_cache/
+**/.rts2_cache_*/
+**/tmp/
+**/temp/
+**/*.tmp
+**/*.temp
+
+# Optional caches
+**/.eslintcache
+**/.stylelintcache
+
+# =================
+# IDE & Editor Files
+# =================
+.vscode/
+.idea/
+**/*.swp
+**/*.swo
+**/*~
+
+# =================
+# OS Generated Files
+# =================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# =================
+# Development Tools
+# =================
+# Docker
+**/Dockerfile
+**/docker-compose*.yml
+**/.dockerignore
+
+# PM2
+**/ecosystem.config.js
+
+# Monitoring
+**/newrelic.js
+**/newrelic_agent.log
+
+# Sentry
+**/.sentryclirc
+
+# =================
+# Flash Sale System Specific
+# =================
+**/uploads/
+**/public/uploads/
+**/storage/
+**/*.sqlite-journal
+**/*.sqlite-wal
+**/*.sqlite-shm
+
+# =================
+# Assessment Documentation
+# =================
+# Keep all markdown files and documentation
+!**/*.md
+!**/docs/**
+!**/README*
+!**/ARCHITECTURE*
+!**/DEPLOYMENT*
+
+# =================
+# Build & Deployment
+# =================
+# Keep essential config files
+!**/tsconfig*.json
+!**/package.json
+!**/.gitignore
+!**/.env.example
+
+# Deployment artifacts
+**/release/
+**/deploy/
+
+# =================
+# Future Extensions
+# =================
+# GraphQL
+**/schema.graphql.generated
+**/generated/
+
+# Analytics
+**/analytics/
+**/*.analytics
